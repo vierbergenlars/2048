@@ -16,6 +16,15 @@ Tile.prototype.updatePosition = function (position) {
   this.y = position.y;
 };
 
+Tile.prototype.getTileNumber = function() {
+	return parseInt(Math.log(this.value)/Math.log(2))-1;
+}
+
+Tile.prototype.getDisplayText = function() {
+	var texts = ["E","L","F","!","als","serieuze","ploeg","Industria","2014","2015","E.L.F!"];
+	return texts[this.getTileNumber()];
+}
+
 Tile.prototype.serialize = function () {
   return {
     position: {
